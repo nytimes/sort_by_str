@@ -1,18 +1,35 @@
 = sort_by_str
 
-Description goes here.
+SQL-like sorts on your Enumerables.
 
-== Note on Patches/Pull Requests
+== Getting Started
  
-* Fork the project.
-* Make your feature addition or bug fix.
-* Add tests for it. This is important so I don't break it in a
-  future version unintentionally.
-* Commit, do not mess with rakefile, version, or history.
-  (if you want to have your own version, that is fine but
-   bump version in a commit by itself I can ignore when I pull)
-* Send me a pull request. Bonus points for topic branches.
+  gem install sort_by_str
+  require 'sort_by_str'
+
+== Usage
+
+  a = Date.parse('2010-08-22')
+  b = Date.parse('2010-08-23)
+  
+  [a,b].sort_by_str('year ASC, day DESC')
+  => [b,a]
+
+Call sort_by_str on your Enumerable with a SQL-style sort expression containing a list of fields.
+
+A basic expression might look like like
+  'year, month, day'.
+
+Optional ASC (ascending) or DESC (descending) modifiers can also be used:
+  'year ASC, day DESC'
+
+<tt>send</tt> is used to extract values for comparison, so any valid method name
+can be used in the expression.
+
+== Author
+
+Ben Koski, bkoski@nytimes.com
 
 == Copyright
 
-Copyright (c) 2010 Ben Koski. See LICENSE for details.
+Copyright (c) 2010 The New York Times Company. See LICENSE for details.
