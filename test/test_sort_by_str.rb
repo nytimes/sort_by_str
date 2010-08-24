@@ -18,6 +18,7 @@ class SortByStrTest < Test::Unit::TestCase
     
     should "sort correctly on a multi-field sort" do
       assert_equal [@blue_10, @red_10, @red_15], @all_data.sort_by_str('size, color')
+      assert_equal [[1,1],[1,2],[1,2],[2,3]], [[1,2],[2,3],[1,2],[1,1]].sort_by_str('first, last')
     end
     
     should "respect DESC modifier" do
